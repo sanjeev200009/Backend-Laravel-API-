@@ -2,18 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ProductController;
 
-Route::get('/health', function () {
-    return response()->json([
-        'status' => 'healthy',
-        'timestamp' => now(),
-        'version' => '1.0.0'
-    ]);
-});
-
-Route::middleware('api')->group(function () {
-    // Add your API routes here
-    
-    // Example: Product routes
-    // Route::apiResource('products', ProductController::class);
-});
+Route::get('/products', [ProductController::class, 'index']);
